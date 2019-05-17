@@ -64,7 +64,8 @@ public class DisplayAsset extends HttpServlet {
 						+ "</tr>");
 			}
 			out.println("<a href=FixedAsset.html>Go Back</a><br>");
-			out.println("<a href=DeleteAsset.html>Delete an Asset</a><br><br>");
+			out.println("<a href=DeleteAsset.html>Search and Delete Asset</a><br><br>");
+			out.println();
 			out.println("</table></body></html>");
 			out.close();
 		}

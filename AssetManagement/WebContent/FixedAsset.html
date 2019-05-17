@@ -3,26 +3,65 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="container">
+	<h1 align="center">Enter Data of Assets to store in Database</h1>
+	Date:<p>17/05/2019</p><br>
 
 	<form action="InsertAsset" method="post">
-		<h1>Enter Data of Assets to store in Database</h1>
-		Asset Code: <input type=text name=ac>Date:<p>17/05/2019</p><br>
-		Product ID: <input type=text name=pid ><br>
-		Product Name: <input type=text name=pname ><br>
-		Model: <input type=text name=model ><br>
-		Date of Purchase: <input type=text name=dop ><br>
-		Asset Life: <input type=number name=assetlife ><br>
-		Cost: <input type="number" step="0.01" min=0 name=cost ><br>
-		Supplier: <input type=text name=supplier ><br>
-		Salvage Value: <input type=text name=salvage ><br>
-		Warranty: <input type=text name=waranty><br>
 		
-		<input type="submit" name="Submit">
+		<div class="form-group mx-sm-3 mb-2">
+			<label for ="asset">Asset Code:</label>
+			 <input type=text name=ac><br>
+		</div>
+		<div class="form-group mx-sm-3 mb-2">
+			<label for ="asset">Product ID:</label>
+			<input type=text name=pid ><br>
+		</div>
+		<div class="form-group mx-sm-3 mb-2">
+			<label for ="asset">Product Name:</label>
+		 <input type=text name=pname ><br>
+		</div>
+		<div class="form-group mx-sm-3 mb-2">
+			<label for ="asset">Model:</label>
+			<input type=text name=model ><br>
+			</div>
+		<div class="form-group mx-sm-3 mb-2">
+			<label for ="asset">Date of Purchase:</label>
+			<input type=text name=dop ><br>
+			</div>
+			<div class="form-group mx-sm-3 mb-2">
+			<label for ="asset">Asset Life</label>
+			 <input type=number name=assetlife ><br><br>
+			 </div>
+			 <div class="form-group mx-sm-3 mb-2">
+			<label for ="asset">Cost:</label>
+			<input type="number" step="0.01" min=0 name=cost ><br>
+			</div>
+			<div class="form-group mx-sm-3 mb-2">
+			<label for ="asset">Supplier:</label>
+			 <input type=text name=supplier ><br>
+			 </div>
+			 <div class="form-group mx-sm-3 mb-2">
+			<label for ="asset">Salvage Value:</label>
+				<input type=text name=salvage ><br>
+			</div>
+		 <div class="form-group mx-sm-3 mb-2">
+			<label for ="asset">Warranty:</label>
+		 <input type=text name=warranty><br><br>
+		 </div>
+		 
+		
+		<input type="submit" name="Submit" value="Submit"><br>
+		<input type="button" name="Display" value="Display Assets" onClick="window.location='DisplayAsset';">
 	
 	
 	</form>
+	
+	</div>
 	
 
 </body>

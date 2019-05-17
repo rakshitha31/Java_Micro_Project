@@ -17,7 +17,7 @@
 		Password<input type="password" name="password"><br><br>
 		<input type="submit" value="submit">
 		
-		<a href="DisplayAsset">Display</a>
+	
 	</form>
 	
 	

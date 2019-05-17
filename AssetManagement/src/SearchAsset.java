@@ -3,6 +3,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -12,20 +13,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.ResultSet;
 import com.mysql.jdbc.Statement;
 
 /**
- * Servlet implementation class UpdatedDisplay
+ * Servlet implementation class SearchAsset
  */
-@WebServlet("/UpdatedDisplay")
-public class UpdatedDisplay extends HttpServlet {
+@WebServlet("/SearchAsset")
+public class SearchAsset extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdatedDisplay() {
+    public SearchAsset() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,7 +43,7 @@ public class UpdatedDisplay extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	//	doGet(request, response);
+//		doGet(request, response);
 		Statement stmt = null;
 		try {
 			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
@@ -55,20 +55,26 @@ public class UpdatedDisplay extends HttpServlet {
 		}
 		
 		
-		
 		String pid=request.getParameter("pid");
 		PrintWriter out=response.getWriter();
 			try {
-				int rs=stmt.executeUpdate("delete from assets where pid='"+pid+"';");
-				if(rs==1) {
-				//	out.println("Deleted Successfully!!");
-					out.print("<html><head>");
-					out.println("onload=\"alert('Deleted!')\"");
-					out.print("</head><body></body></html>");
-					response.sendRedirect("DisplayAsset");
-					
-				}else {
-					out.println("Record doesnt exist");
+				ResultSet rs=stmt.executeQuery("select * from assets where pid='"+pid+"';");
+				out.println("<html><head><title>Assets</title></head><body><h1>Databases</h1>");
+				out.println("<table border=1px><tr><th>Asset Code</th><th>Product ID</th><th>Product Name</th><th>Model</th><th>Date of Purchase</th><th>Asset Life</th><th>Cost</th><th>Supplier</th><th>Product Salvage</th><th>Warranty</th></tr>");
+				while(rs.next()) {
+					out.println("<tr>"
+							+ "<td>"+rs.getString(1)+"</td>"
+							+ "<td>"+rs.getString(2)+"</td>"
+							+ "<td>"+rs.getString(3)+"</td>"
+							+ "<td>"+rs.getString(4)+"</td>"
+							+ "<td>"+rs.getString(5)+"</td>"
+							+ "<td>"+rs.getString(6)+"</td>"
+							+ "<td>"+rs.getFloat(7)+"</td>"
+							+ "<td>"+rs.getString(8)+"</td>"
+							+ "<td>"+rs.getInt(9)+"</td>"
+							+ "<td>"+rs.getString(10)+"</td>"
+								
+							+ "</tr>");
 				}
 				
 				
@@ -77,7 +83,5 @@ public class UpdatedDisplay extends HttpServlet {
 				e.printStackTrace();
 			}
 	}
-	
-		
-}
 
+}

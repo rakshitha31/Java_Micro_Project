@@ -13,7 +13,7 @@
 	String username=request.getParameter("username");
 
 String password=request.getParameter("password"); 
-if((username.equals("divyak") && password.equals("divyak")))
+if((username.equals("abc") && password.equals("abc")))
 { 
 	session.setAttribute("username",username); 
 	response.sendRedirect("FixedAsset.html"); 
